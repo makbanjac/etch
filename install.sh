@@ -1,8 +1,8 @@
 #!/bin/bash
-# Etch installer.   curl -fsSL https://makbanjac.github.io/etch/install.sh | bash
+# Etch installer.   curl -fsSL https://etchapp.cc/install.sh | bash
 set -euo pipefail
 
-HOST="${ETCH_SERVER:-https://makbanjac.github.io/etch}"
+HOST="${ETCH_SERVER:-https://etchapp.cc}"
 VERSION="${ETCH_VERSION:-1.0.0}"
 APPS="$HOME/Applications"
 LABEL="com.makbanjac.etch.widget"
