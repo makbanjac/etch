@@ -152,6 +152,8 @@
   const btn = document.getElementById('sound');
   const vids = [...document.querySelectorAll('.film video')];
   const live = () => vids.find(v => v.offsetParent !== null) || vids[0];
+  // Muted, the loop opens on the glass rather than on the black title cards.
+  vids.forEach(v => v.addEventListener('loadedmetadata', () => { if (v.muted) v.currentTime = 4.5; }, { once: true }));
   btn.onclick = () => {
     const v = live();
     if (v.muted) { v.muted = false; v.currentTime = 0; v.play(); btn.textContent = 'Sound off'; }
