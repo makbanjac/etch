@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Etch: living glass on your Mac desktop</title>
+<meta name="description" content="Etch puts real glass lettering on your macOS wallpaper. It bends the desktop behind it and catches the light. Free to try, $8 for Pro.">
+<meta property="og:title" content="Etch: living glass on your desktop">
+<meta property="og:description" content="Real glass lettering on your Mac wallpaper. It bends the light behind it.">
+<meta property="og:image" content="https://makbanjac.github.io/etch/poster.jpg">
+<meta property="og:video" content="https://makbanjac.github.io/etch/etch-film.mp4">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://makbanjac.github.io/etch/poster.jpg">
+<link rel="icon" href="icon.png">
+<style>
+  :root{
+    --ink:#0d0d12; --paper:#fbfbfd; --muted:#6b6b76; --line:#e6e6ec;
+    --accent:#5b46f0; --radius:16px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header{padding:64px 0 28px;text-align:center}
+  h1{font-size:clamp(38px,7vw,58px);line-height:1.04;letter-spacing:-.03em;margin:0 0 14px;font-weight:700}
+  .sub{font-size:clamp(17px,2.4vw,20px);color:var(--muted);margin:0 auto;max-width:30em}
+  .film{position:relative;margin:34px auto;border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 24px 70px rgba(20,16,60,.25);background:#0b0b10}
+  .film video{display:block;width:100%;height:auto}
+  .film .v{display:none}
+  @media (max-width:640px){ .film{max-width:420px} .film .h{display:none} .film .v{display:block} }
+  .sound{position:absolute;right:12px;bottom:12px;border:0;border-radius:999px;cursor:pointer;
+    background:rgba(0,0,0,.55);color:#fff;font:600 13px/1 -apple-system,sans-serif;padding:9px 14px;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .buy{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin:30px 0 8px}
+  .btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+    padding:13px 26px;border-radius:999px;font-weight:600;font-size:15px}
+  .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.off{background:#8a8a94;pointer-events:none}
+  .price{color:var(--muted);font-size:14px;text-align:center;margin:6px 0 0}
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
+    font-weight:600;margin:64px 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
+  .grid h3{font-size:16px;margin:0 0 5px}
+  .grid p{margin:0;color:var(--muted);font-size:15px}
+  .copy{position:relative}
+  pre{background:#14141b;color:#e8e8f0;padding:16px 18px;padding-right:86px;border-radius:12px;
+    overflow-x:auto;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:0}
+  .copy button{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;border-radius:8px;
+    background:#2c2c38;color:#fff;font:600 12.5px/1 -apple-system,sans-serif;padding:8px 11px;cursor:pointer}
+  ol{padding-left:20px} ol li{margin:4px 0}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{text-align:left;padding:11px 8px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-weight:600;width:44%}
+  td{color:var(--muted)}
+  .tick{color:var(--ink)}
+  .faq p{color:var(--muted);margin:0 0 18px}
+  .faq strong{color:var(--ink);display:block}
+  footer{margin:80px 0 60px;color:var(--muted);font-size:13.5px;text-align:center}
+  a{color:var(--accent)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Living glass<br>on your desktop.</h1>
+    <p class="sub">Etch puts real glass lettering on your Mac wallpaper. It bends the
+      desktop behind it and catches the light.</p>
+  </header>
+
+  <div class="film">
+    <video class="h" src="etch-film.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+    <video class="v" src="etch-film-vertical.mp4" poster="poster-vertical.jpg" autoplay muted loop playsinline preload="metadata"></video>
+    <button class="sound" id="sound">Sound on</button>
+  </div>
+
+  <div class="buy">
+    <a class="btn" id="buy" href="">Get Etch Pro for $8</a>
+    <a class="btn alt" href="#install">Try it free</a>
+  </div>
+  <p class="price">One payment. Yours for good, on up to 5 of your Macs.</p>
+
+  <h2>What it does</h2>
+  <div class="grid">
+    <div><h3>Actual refraction</h3><p>Etch samples your wallpaper, bends it through the
+      shape of the letters, and lights it. A blur can only ever look flat.</p></div>
+    <div><h3>Lives on the wallpaper</h3><p>It never floats over your apps, never takes
+      a click, and never shows up in &#8984;-Tab.</p></div>
+    <div><h3>Live, not just pretty</h3><p>Show the time, the date, your battery,
+      uptime, free space, or a quote that changes every day.</p></div>
+    <div><h3>Costs nothing to run</h3><p>Under 0.1% CPU. It wakes on the minute
+      only when something on screen changes.</p></div>
+    <div><h3>Put it anywhere</h3><p>Hover, grab the handle, drop it. It remembers
+      the spot on each display.</p></div>
+    <div><h3>Nine hand-lettered faces</h3><p>Three looks and ten dials: thickness,
+      frost, bend, glow and more.</p></div>
+  </div>
+
+  <h2>Free or Pro</h2>
+  <table>
+    <tr><th></th><td class="tick"><strong>Free</strong></td><td class="tick"><strong>Pro, $8</strong></td></tr>
+    <tr><th>Glass rendering, every control</th><td>Yes</td><td>Yes</td></tr>
+    <tr><th>Widgets on screen</th><td>1</td><td>Up to 8</td></tr>
+    <tr><th>Fonts</th><td>3</td><td>All 9</td></tr>
+    <tr><th>Live data and daily quotes</th><td>No</td><td>Yes</td></tr>
+  </table>
+
+  <h2 id="install">Install</h2>
+  <ol>
+    <li>Open <strong>Terminal</strong> (press &#8984;-Space, type "Terminal", press Return).</li>
+    <li>Paste this line and press Return:</li>
+  </ol>
+  <div class="copy"><pre id="line">curl -fsSL https://makbanjac.github.io/etch/install.sh | bash</pre><button id="copy">Copy</button></div>
+  <p style="color:var(--muted);font-size:14px">A few seconds later the glass is on your desktop, and Etch is in
+    your Dock for settings. macOS 13 or newer, Apple Silicon or Intel.
+    <a href="install.sh">Read the installer</a> before you run it. It is short.</p>
+  <p style="color:var(--muted);font-size:14px"><strong>Unlock Pro:</strong> buy a key, open Etch, paste the key
+    under Licence and click Activate.</p>
+
+  <h2>Questions</h2>
+  <div class="faq">
+    <p><strong>Why Terminal, and not a download?</strong>A downloaded app must be approved by
+      Apple to open without warnings. The one-line install skips that step and shows no
+      warnings. The script only puts two apps in your Applications folder and starts the widget.</p>
+    <p><strong>What does it collect?</strong>Nothing. Etch has no analytics and no account.
+      It goes online once, to check a Pro key with the shop when you activate it.</p>
+    <p><strong>How do I remove it?</strong>Run <code>curl -fsSL https://makbanjac.github.io/etch/uninstall.sh | bash</code>.
+      It moves Etch to the Trash.</p>
+    <p><strong>Refunds?</strong>Within 14 days, for any reason. Reply to your receipt email.</p>
+    <p><strong>Updates?</strong>Run the install line again. Your text, positions and licence stay.</p>
+  </div>
+
+  <footer>
+    Made by <a href="https://makbanjac.com">Mak Banjac</a>.
+    Etch is not affiliated with Apple Inc.<br>
+    <a href="https://github.com/makbanjac/etch/issues">Help and support</a>
+  </footer>
+</div>
+
+<script>
+  const buy = document.getElementById('buy');
+  const href = buy.getAttribute('href');
+  if (!href || href === '') { buy.textContent = 'Pro opens this week'; buy.classList.add('off'); }
+
+  document.getElementById('copy').onclick = e => {
+    navigator.clipboard.writeText(document.getElementById('line').textContent.trim());
+    e.target.textContent = 'Copied'; setTimeout(() => e.target.textContent = 'Copy', 1600);
+  };
+
+  // Autoplay needs the sound off. One tap turns it on and restarts the film, so
+  // the music and the picture start together.
+  const btn = document.getElementById('sound');
+  const vids = [...document.querySelectorAll('.film video')];
+  const live = () => vids.find(v => v.offsetParent !== null) || vids[0];
+  btn.onclick = () => {
+    const v = live();
+    if (v.muted) { v.muted = false; v.currentTime = 0; v.play(); btn.textContent = 'Sound off'; }
+    else { v.muted = true; btn.textContent = 'Sound on'; }
+  };
+</script>
+</html>
